@@ -42,6 +42,8 @@ setInterval(() => {
   reminders = reminders.filter(r => {
     if (r.time <= now) {
       new Notification("⏰ Reminder", { body: r.text });
+document.getElementById('beep').play();
+
       return false;
     }
     return true;
