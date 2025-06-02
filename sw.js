@@ -7,6 +7,7 @@ self.addEventListener('install', event => {
         'style.css',
         'manifest.json',
         'icon.png'
+        'beep-329314.mp3'
       ]);
     })
   );
