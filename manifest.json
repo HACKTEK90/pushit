@@ -1,0 +1,21 @@
+{
+  "name": "Offline Reminder",
+  "short_name": "Reminder",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "description": "Set offline reminders with local notifications",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
