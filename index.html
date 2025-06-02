@@ -2,19 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Offline Reminder</title>
+  <title>Offline Organizer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#121212">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🕒 Offline Reminder</h1>
-  <div class="container">
-    <input type="text" id="reminderText" placeholder="Reminder message">
-    <input type="number" id="minutes" placeholder="In how many minutes?" min="1">
+  <h1>📒 Offline Organizer</h1>
+  <div class="tabs">
+    <button onclick="switchTab('reminder')">🕒 Reminders</button>
+    <button onclick="switchTab('todo')">✅ To-Do</button>
+    <button onclick="switchTab('note')">📝 Notes</button>
+  </div>
+
+  <div id="reminder" class="section">
+    <h2>Set a Reminder</h2>
+    <input type="text" id="reminderText" placeholder="Reminder text">
+    <input type="number" id="reminderTime" placeholder="In minutes" min="1">
     <button onclick="addReminder()">Add Reminder</button>
     <ul id="reminderList"></ul>
+  </div>
+
+  <div id="todo" class="section hidden">
+    <h2>Your To-Do List</h2>
+    <input type="text" id="todoInput" placeholder="New task">
+    <button onclick="addTodo()">Add Task</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <div id="note" class="section hidden">
+    <h2>Notes</h2>
+    <textarea id="notesArea" placeholder="Write your notes here..."></textarea>
   </div>
 
   <script src="script.js"></script>
