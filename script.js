@@ -8,10 +8,9 @@ async function addReminder() {
   if (!text || !minutes || minutes < 1) return alert("Fill both fields properly!");
 
   const permission = await Notification.requestPermission();
-  if (permission !== "granted") return alert("Enable notifications");
+  if (permission !== "granted") return alert("Please enable notifications");
 
   const time = Date.now() + minutes * 60000;
-
   const reminder = { text, time };
   const reminders = JSON.parse(localStorage.getItem("reminders") || "[]");
   reminders.push(reminder);
@@ -22,9 +21,8 @@ async function addReminder() {
 function displayReminders() {
   const list = document.getElementById("reminderList");
   list.innerHTML = "";
-
   const reminders = JSON.parse(localStorage.getItem("reminders") || "[]");
-  reminders.forEach((r, i) => {
+  reminders.forEach(r => {
     const li = document.createElement("li");
     const date = new Date(r.time);
     li.textContent = `🔔 ${r.text} at ${date.toLocaleTimeString()}`;
@@ -38,7 +36,7 @@ setInterval(() => {
   reminders = reminders.filter(r => {
     if (r.time <= now) {
       new Notification("⏰ Reminder", { body: r.text });
-      return false; // remove it
+      return false; // remove after notifying
     }
     return true;
   });
